@@ -1,6 +1,5 @@
 import { Product } from "@/types";
 import Link from "next/link";
-import Button from "../button";
 import ImageCard from "../image-card";
 import PriceText from "../price-text";
 

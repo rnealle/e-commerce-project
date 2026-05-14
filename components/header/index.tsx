@@ -16,7 +16,9 @@ function Header() {
         </div>
         <nav className="hidden md:flex mt-auto gap-4">
           <HeartIcon className="size-8" />
-          <CartIcon className="size-8" />
+          <Link href={"/cart"}>
+            <CartIcon className="size-8" />
+          </Link>
           <ProfileIcon className="size-8" />
         </nav>
       </div>

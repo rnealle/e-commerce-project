@@ -29,6 +29,17 @@ export default function ProductDetailPage({
     loadProduct();
   }, [id]);
 
+  //implement very basic cart functionality
+  const addToCart = (product: Product) => {
+    let currentCartString = localStorage.getItem("cart") || "";
+    currentCartString = currentCartString?.concat(
+      JSON.stringify(product).concat("/n"),
+    );
+
+    localStorage.setItem("cart", currentCartString);
+    alert("Successfully added item to cart.");
+  };
+
   if (!product) {
     return notFound();
   }
@@ -47,7 +58,14 @@ export default function ProductDetailPage({
             />
           )}
           <p className="text-justify">{product?.description}</p>
-          <Button primary>Add to Cart</Button>
+          <Button
+            primary
+            onClick={() => {
+              addToCart(product);
+            }}
+          >
+            Add to Cart
+          </Button>
         </div>
       </div>
     </main>
